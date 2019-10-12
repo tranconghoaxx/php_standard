@@ -1,0 +1,17 @@
+<?php
+$url = $SERVER['SCRIPT_NAME'];
+$path = explode('/',$url);
+//lấy path[1] bởi vì ở đầu có / nó tách đầu và lấy khoảng không trước đó nữa 
+define('BASE_URL',$path[1]);
+?>
+
+// hoặc có thể dùm trim
+<?php
+//đường dẫn tuyệt đối
+//define('BASE_URL','/chuong5');
+
+//đường dẫn động, tương đối (relative)
+$path = explode('/',trim($_SERVER['SCRIPT_NAME'],'/')  );
+define('BASE_URL',$path[0]);
+
+?>
