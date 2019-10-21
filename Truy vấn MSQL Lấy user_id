@@ -1,0 +1,18 @@
+    $name = $_SESSION["username"];
+    Kết nối CSDL
+    $conn = new mysqli('localhost', 'root', '', 'be1_18211tt0059');
+    
+    $sql = "SELECT user_id FROM users WHERE username= '$_SESSION[username]'";
+    
+   Thực thi câu truy vấn và gán vào $result
+   $result = $conn->query($sql);
+   
+  // Trả về hàng hiện tại dưới dạng mảng liên kết
+  var_dump($result->fetch_row());
+  var_dump($result);
+   
+   //trả về dòng của 1 truy vấn dưới dạng mảng assoc
+   while($row=$result->fetch_assoc())
+   {
+      echo $row['user_id'] ;
+   }
